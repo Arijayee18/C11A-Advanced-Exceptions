@@ -8,7 +8,7 @@ public class BankAccount {
 	
 	public void withdraw(double withdrawAmount) throws Exception{
 		if (this.balance > this.withdrawAmount) {
-			throw new NegativeBalanceException("Withdraw Amount exceeds current account balance.");
+			//throw new NegativeBalanceException("Withdraw Amount exceeds current account balance.");
 		}
 	}
 }

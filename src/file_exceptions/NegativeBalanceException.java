@@ -16,7 +16,7 @@ public class NegativeBalanceException extends Exception{
 	public NegativeBalanceException(double negativeBalance){
 		super("Amount exceeds balance by "+ negativeBalance);
 		this.negativeBalance = negativeBalance;
-		PrintWriter out = new PrintWriter("logfile.txt");
+		//PrintWriter out = new PrintWriter("logfile.txt");
 	}
 	
 	
