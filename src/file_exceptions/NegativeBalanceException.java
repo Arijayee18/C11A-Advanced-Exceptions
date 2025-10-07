@@ -1,9 +1,5 @@
 package file_exceptions;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.io.*;       // for File and PrintWriter
-import java.util.*;     // for Scanner
 
 
 public class NegativeBalanceException extends Exception{
@@ -14,9 +10,22 @@ public class NegativeBalanceException extends Exception{
 	}
 	
 	public NegativeBalanceException(double negativeBalance){
-		super("Amount exceeds balance by "+ negativeBalance);
+		super("Amount exceeds balance by "+ negativeBalance);      
 		this.negativeBalance = negativeBalance;
-		//PrintWriter out = new PrintWriter("logfile.txt");
+		try {      
+			PrintWriter out = new PrintWriter("logfile.txt");
+			out.println("Amount exceeds balance by "+ negativeBalance);
+			out.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Balance of " + this.negativeBalance + " not allowed.";
 	}
 	
 	
